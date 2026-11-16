@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#103c2d">
+  <meta name="description" content="Rijo Express ayuda a negocios a organizar clientes, préstamos, pagos y vencimientos desde un solo lugar. Cuenta gratis y portal seguro para clientes.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rijo Express | Sistema de gestión de préstamos">
+  <meta property="og:description" content="Administra tu cartera de préstamos y ofrece a tus clientes un portal seguro para consultar sus balances y pagos.">
+  <meta property="og:image" content="__RIJO_PUBLIC_ORIGIN__/logo_rijo_express.png">
+  <link rel="canonical" href="__RIJO_PUBLIC_ORIGIN__/">
+  <meta name="twitter:card" content="summary">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Rijo Express | Sistema de gestión de préstamos</title>
+</head>
+<body>
+  <div class="page-glow page-glow-one" aria-hidden="true"></div>
+  <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+  <main id="login-view" class="login-view">
+    <section class="login-card depth-card" aria-labelledby="login-title">
+      <img class="login-logo" src="/logo_rijo_express.png" alt="Rijo Express: el que te saca de apuro">
+      <p class="eyebrow">GESTIÓN DE CARTERA</p>
+      <p id="login-title" class="login-title" role="heading" aria-level="2">Bienvenido</p>
+      <p class="muted">Inicia sesión para continuar</p>
+      <form id="login-form" class="form-stack">
+        <label for="login-user">Usuario</label>
+        <input id="login-user" name="usuario" autocomplete="username" required>
+        <label for="login-password">Contraseña</label>
+        <input id="login-password" name="contrasena" type="password" autocomplete="current-password" required>
+        <button id="login-submit" class="button button-primary button-wide" type="submit" disabled>Iniciar sesión</button>
+      </form>
+      <a id="forgot-access" class="login-recovery" href="#" target="_blank" rel="noopener noreferrer" hidden>¿Olvidaste tu usuario o contraseña? Solicita ayuda por WhatsApp</a>
+      <button id="show-register" class="button button-secondary button-wide" type="button" disabled>Crear cuenta gratis</button>
+      <button id="show-client-register" class="button button-secondary button-wide" type="button" disabled>Crear acceso de cliente</button>
+      <button id="show-admin-login" class="button button-quiet button-wide" type="button" disabled>Acceso de administrador</button>
+      <p class="login-note">Cuenta gratis hasta 5 préstamos. Premium: <strong id="monthly-price">600 DOP</strong>/mes.</p>
+    </section>
+    <section class="public-home" aria-labelledby="public-home-title">
+      <p class="eyebrow">TU NEGOCIO, MÁS ORGANIZADO</p>
+      <h1 id="public-home-title">Administra tus préstamos con Rijo Express</h1>
+      <p class="public-lead">Una plataforma sencilla para que negocios y personas organicen préstamos, clientes y pagos desde un solo lugar.</p>
+      <div class="public-features">
+        <article><span aria-hidden="true">01</span><h2>Clientes y préstamos</h2><p>Organiza tus clientes, montos, intereses y fechas de vencimiento en un solo panel.</p></article>
+        <article><span aria-hidden="true">02</span><h2>Pagos y balances</h2><p>Registra pagos, consulta saldos pendientes y da seguimiento a préstamos vencidos.</p></article>
+        <article><span aria-hidden="true">03</span><h2>Portal de clientes</h2><p>Tus clientes pueden consultar sus propios préstamos e historial de pagos con un acceso seguro.</p></article>
+      </div>
+      <p class="public-note">Crea una cuenta gratis y registra hasta cinco préstamos. Para agregar más, activa Premium por una membresía mensual.</p>
+    </section>
+  </main>
+
+  <main id="admin-login-view" class="login-view" hidden>
+    <section class="login-card depth-card" aria-labelledby="admin-login-title">
+      <img class="login-logo" src="/logo_rijo_express.png" alt="Rijo Express: el que te saca de apuro">
+      <p class="eyebrow">ACCESO PRIVADO</p>
+      <h1 id="admin-login-title">Administrador</h1>
+      <p class="muted">Solo para la administración de Rijo Express</p>
+      <form id="admin-login-form" class="form-stack">
+        <label for="admin-login-user">Usuario administrador</label>
+        <input id="admin-login-user" name="usuario" value="jaimerm" autocomplete="username" required>
+        <label for="admin-login-password">Contraseña</label>
+        <input id="admin-login-password" name="contrasena" type="password" autocomplete="current-password" required>
+        <button id="admin-login-submit" class="button button-primary button-wide" type="submit" disabled>Iniciar sesión de administrador</button>
+      </form>
+      <button id="back-to-login" class="button button-secondary button-wide" type="button">Volver</button>
+      <a id="admin-forgot-access" class="login-recovery" href="#" target="_blank" rel="noopener noreferrer" hidden>Solicitar ayuda por WhatsApp</a>
+    </section>
+  </main>
+
+  <main id="payment-required-view" class="login-view" hidden>
+    <section class="login-card depth-card" aria-labelledby="payment-title">
+      <img class="login-logo" src="/logo_rijo_express.png" alt="Rijo Express: el que te saca de apuro">
+      <p class="eyebrow">CUENTA DE RIJO EXPRESS</p>
+      <h1 id="payment-title">Pago pendiente</h1>
+      <p id="payment-message" class="muted"></p>
+      <p id="payment-details" class="payment-details"></p>
+      <a id="payment-whatsapp" class="button button-primary button-wide" target="_blank" rel="noopener noreferrer">Enviar comprobante por WhatsApp</a>
+      <button id="payment-back" class="button button-secondary button-wide" type="button">Volver a iniciar sesión</button>
+    </section>
+  </main>
+
+  <main id="password-change-view" class="login-view" hidden>
+    <section class="login-card depth-card" aria-labelledby="password-change-title">
+      <img class="login-logo" src="/logo_rijo_express.png" alt="Rijo Express: el que te saca de apuro">
+      <p class="eyebrow">PROTECCIÓN DE LA CUENTA</p>
+      <h1 id="password-change-title">Cambia tu contraseña</h1>
+      <p class="muted">La clave temporal solo sirve para entrar una vez. Elige una contraseña nueva para continuar.</p>
+      <form id="password-change-form" class="form-stack">
+        <label for="temporary-password">Contraseña temporal</label>
+        <input id="temporary-password" name="contrasena_actual" type="password" autocomplete="current-password" required>
+        <label for="new-account-password">Nueva contraseña (mínimo 12 caracteres)</label>
+        <input id="new-account-password" name="contrasena_nueva" type="password" autocomplete="new-password" minlength="12" maxlength="128" required>
+        <button id="password-change-submit" class="button button-primary button-wide" type="submit">Guardar contraseña nueva</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="app-view" class="app-view" hidden>
+    <header class="topbar depth-card">
+      <a class="brand" href="#inicio" aria-label="Rijo Express, inicio">
+        <img src="/logo_rijo_express.png" alt="">
+      </a>
+      <div class="topbar-meta">
+        <span class="connection-indicator"><i></i> Conectado</span>
+        <span id="current-user" class="user-chip"></span>
+        <button id="install-button" class="button button-install" type="button" hidden>Instalar app</button>
+        <button id="logout-button" class="button button-quiet" type="button">Salir</button>
+      </div>
+    </header>
+
+    <main id="client-portal-view" class="client-portal content" hidden>
+      <div class="page-heading">
+        <div><p class="eyebrow">PORTAL DE CLIENTE</p><h1>Hola, <span id="portal-client-name"></span></h1><p class="muted">Consulta tus préstamos, balances e historial de pagos.</p></div>
+      </div>
+      <section class="metric-grid portal-metrics">
+        <article class="metric-card depth-card"><span>Préstamos</span><strong id="portal-loan-count">0</strong><small>En tu cuenta</small></article>
+        <article class="metric-card depth-card"><span>Saldo pendiente</span><strong id="portal-balance">0</strong><small>Total de tus préstamos</small></article>
+      </section>
+      <section class="panel-card depth-card">
+        <div class="section-heading"><div><p class="eyebrow">TU CUENTA</p><h2>Mis préstamos</h2></div></div>
+        <div id="portal-loans" class="portal-loans"></div>
+        <p id="portal-empty" class="empty-state" hidden>No tienes préstamos registrados. Contacta a la empresa si crees que esto es un error.</p>
+      </section>
+      <p class="muted portal-help">Para realizar un pago o corregir algún dato, comunícate directamente con la empresa.</p>
+    </main>
+
+    <div class="app-layout">
+      <aside class="sidebar depth-card" aria-label="Navegación principal">
+        <p class="sidebar-label">MENÚ PRINCIPAL</p>
+        <nav class="navigation">
+          <button class="nav-link is-active" data-page="dashboard-page" type="button"><span>01</span> Resumen</button>
+          <button class="nav-link" data-page="clients-page" type="button"><span>02</span> Clientes</button>
+          <button class="nav-link" data-page="loans-page" type="button"><span>03</span> Préstamos</button>
+          <button id="users-nav" class="nav-link" data-page="users-page" type="button" hidden><span>04</span> Suscripciones</button>
+        </nav>
+        <div class="sidebar-foot">
+          <span class="sidebar-mark">RE</span>
+          <span>Tu cartera,<br><strong>bajo control.</strong></span>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section id="dashboard-page" class="page-section">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">PANEL DE CONTROL</p>
+              <h1>Resumen de cartera</h1>
+              <p class="muted">Una vista clara de la actividad de Rijo Express.</p>
+            </div>
+            <button id="refresh-button" class="button button-secondary" type="button">Actualizar</button>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card depth-card"><span>Clientes</span><strong id="metric-clients">—</strong><small>Registrados</small></article>
+            <article class="metric-card depth-card"><span>Préstamos</span><strong id="metric-loans">—</strong><small>En total</small></article>
+            <article class="metric-card depth-card"><span>Activos</span><strong id="metric-active">—</strong><small>Con saldo pendiente</small></article>
+            <article class="metric-card depth-card metric-warning"><span>En mora</span><strong id="metric-overdue">—</strong><small>Requieren atención</small></article>
+            <article class="metric-card depth-card metric-income"><span>Ingresos acumulados</span><strong id="metric-income">—</strong><small>Pagos recibidos</small></article>
+          </div>
+
+          <section class="panel-card depth-card">
+            <div class="section-heading">
+              <div><p class="eyebrow">SEGUIMIENTO</p><h2>Próximos vencimientos</h2></div>
+              <span class="section-badge">7 días</span>
+            </div>
+            <div id="due-list" class="due-list"><p class="empty-state">Cargando vencimientos…</p></div>
+          </section>
+
+          <section class="panel-card depth-card quick-panel">
+            <div class="section-heading"><div><p class="eyebrow">ATAJOS</p><h2>Accesos rápidos</h2></div></div>
+            <div class="quick-actions">
+              <button class="quick-action" data-open-dialog="client-dialog" type="button"><span class="action-icon">+</span><span>Agregar cliente</span><b>↗</b></button>
+              <button class="quick-action" data-open-dialog="loan-dialog" type="button"><span class="action-icon">↗</span><span>Crear préstamo</span><b>↗</b></button>
+              <button class="quick-action" data-page="loans-page" type="button"><span class="action-icon">$</span><span>Registrar pago</span><b>↗</b></button>
+            </div>
+          </section>
+        </section>
+
+        <section id="clients-page" class="page-section" hidden>
+          <div class="page-heading">
+            <div><p class="eyebrow">DIRECTORIO</p><h1>Clientes</h1><p class="muted">Busca y administra tu lista de clientes.</p></div>
+            <button class="button button-primary" data-open-dialog="client-dialog" type="button">+ Nuevo cliente</button>
+          </div>
+          <section class="panel-card depth-card">
+            <div class="table-toolbar"><label class="search-box"><span>⌕</span><input id="client-search" type="search" placeholder="Buscar por ID o nombre" autocomplete="off"></label></div>
+            <div class="table-wrap">
+              <table><thead><tr><th>ID</th><th>Nombre</th><th>Fecha de registro</th><th>Acceso</th></tr></thead><tbody id="clients-table"></tbody></table>
+            </div>
+            <p id="clients-empty" class="empty-state" hidden>No hay clientes para mostrar.</p>
+          </section>
+        </section>
+
+        <section id="loans-page" class="page-section" hidden>
+          <div class="page-heading">
+            <div><p class="eyebrow">CARTERA</p><h1>Préstamos</h1><p class="muted">Consulta saldos y registra pagos.</p></div>
+            <button class="button button-primary" data-open-dialog="loan-dialog" type="button">+ Nuevo préstamo</button>
+          </div>
+          <div id="plan-notice" class="plan-notice" hidden>
+            <p id="plan-message"></p>
+            <a id="upgrade-premium-link" class="button button-primary" target="_blank" rel="noopener noreferrer">Actualizar a Premium</a>
+          </div>
+          <section class="panel-card depth-card">
+            <div class="table-toolbar"><label class="search-box"><span>⌕</span><input id="loan-search" type="search" placeholder="Filtrar por ID o cliente" autocomplete="off"></label></div>
+            <div class="table-wrap">
+              <table><thead><tr><th>Préstamo</th><th>Cliente</th><th>Vencimiento</th><th>Saldo pendiente</th><th>Estado</th><th></th></tr></thead><tbody id="loans-table"></tbody></table>
+            </div>
+            <p id="loans-empty" class="empty-state" hidden>No hay préstamos para mostrar.</p>
+          </section>
+        </section>
+
+        <section id="users-page" class="page-section" hidden>
+          <div class="page-heading">
+            <div><p class="eyebrow">CUENTAS</p><h1>Suscripciones</h1><p class="muted">Las cuentas gratis pueden crear hasta cinco préstamos; registra Premium al confirmar el pago.</p></div>
+            <button id="refresh-accounts" class="button button-secondary" type="button">Actualizar</button>
+          </div>
+          <section class="panel-card depth-card membership-price-panel">
+            <form id="membership-price-form" class="membership-price-form">
+              <div><label for="membership-price">Precio mensual de Premium (DOP)</label><p class="muted">El nuevo precio se aplica a las cuentas al renovar o activar Premium.</p></div>
+              <div class="membership-price-actions">
+                <input id="membership-price" name="mensualidad" type="number" min="0.01" max="1000000000" step="0.01" value="600" required>
+                <button class="button button-primary" type="submit">Guardar precio</button>
+              </div>
+            </form>
+          </section>
+          <section class="panel-card depth-card">
+            <div class="table-wrap">
+              <table><thead><tr><th>Empresa</th><th>Usuario</th><th>Plan</th><th>Préstamos</th><th>Precio</th><th>Registro</th><th>Vence</th><th>Estado</th><th>Pagos</th><th>Último pago</th><th>Acciones</th></tr></thead><tbody id="accounts-table"></tbody></table>
+            </div>
+            <p id="accounts-empty" class="empty-state" hidden>No hay cuentas registradas.</p>
+          </section>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="client-dialog" class="modal-card">
+    <form id="client-form" class="form-stack">
+      <div class="modal-heading"><div><p class="eyebrow">DIRECTORIO</p><h2>Nuevo cliente</h2></div><button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button></div>
+      <label for="client-id">ID del cliente</label><input id="client-id" name="id_cliente" required>
+      <label for="client-name">Nombre completo</label><input id="client-name" name="nombre" autocomplete="name" required>
+      <div class="modal-actions"><button class="button button-quiet" data-close-dialog type="button">Cancelar</button><button class="button button-primary" type="submit">Guardar cliente</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="loan-dialog" class="modal-card">
+    <form id="loan-form" class="form-stack">
+      <div class="modal-heading"><div><p class="eyebrow">CARTERA</p><h2>Nuevo préstamo</h2></div><button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button></div>
+      <label for="loan-id">ID del préstamo</label><input id="loan-id" name="id_prestamo" required>
+      <label for="loan-client">Cliente</label><select id="loan-client" name="id_cliente" required></select>
+      <div class="input-grid">
+        <div><label for="loan-amount">Monto</label><input id="loan-amount" name="monto" type="number" min="0.01" step="0.01" required></div>
+        <div><label for="loan-rate">Interés (%)</label><input id="loan-rate" name="tasa_interes" type="number" min="0" step="0.01" value="0" required></div>
+        <div><label for="loan-start">Fecha de inicio</label><input id="loan-start" name="fecha_inicio" type="date" required></div>
+        <div><label for="loan-due">Fecha de vencimiento</label><input id="loan-due" name="fecha_vencimiento" type="date" required></div>
+      </div>
+      <label for="loan-late-rate">Tasa de mora (%)</label><input id="loan-late-rate" name="tasa_mora" type="number" min="0" step="0.01" value="0">
+      <div class="modal-actions"><button class="button button-quiet" data-close-dialog type="button">Cancelar</button><button class="button button-primary" type="submit">Crear préstamo</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="payment-dialog" class="modal-card">
+    <form id="payment-form" class="form-stack">
+      <div class="modal-heading"><div><p class="eyebrow">PAGO</p><h2>Registrar pago</h2></div><button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button></div>
+      <p id="payment-loan-label" class="muted"></p>
+      <label for="payment-date">Fecha</label><input id="payment-date" name="fecha" type="date" required>
+      <label for="payment-amount">Monto del pago</label><input id="payment-amount" name="monto" type="number" min="0.01" step="0.01" required>
+      <div class="modal-actions"><button class="button button-quiet" data-close-dialog type="button">Cancelar</button><button class="button button-primary" type="submit">Guardar pago</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="register-dialog" class="modal-card">
+    <form id="register-form" class="form-stack">
+      <div class="modal-heading"><div><p class="eyebrow">NUEVA CUENTA GRATIS</p><h2>Registra tu empresa</h2></div><button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button></div>
+      <label for="register-name">Nombre de la empresa o negocio</label><input id="register-name" name="nombre" autocomplete="organization" maxlength="80" required>
+      <label for="register-user">Nombre de usuario</label><input id="register-user" name="usuario" autocomplete="username" minlength="3" maxlength="32" required>
+      <label for="register-password">Contraseña (mínimo 12 caracteres)</label><input id="register-password" name="contrasena" type="password" autocomplete="new-password" minlength="12" maxlength="128" required>
+      <p class="muted registration-price">La cuenta es gratis para registrar hasta 5 préstamos. El sexto requiere Premium por <strong id="registration-monthly-price">600 DOP</strong> al mes.</p>
+      <div class="modal-actions"><button class="button button-quiet" data-close-dialog type="button">Cancelar</button><button class="button button-primary" type="submit">Crear cuenta</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="premium-required-dialog" class="modal-card">
+    <div class="form-stack">
+      <div class="modal-heading"><div><p class="eyebrow">ACTUALIZACIÓN DE PLAN</p><h2>Actualiza a Premium</h2></div><button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button></div>
+      <p id="premium-required-message" class="muted"></p>
+      <p class="muted">Premium es una membresía mensual y continúa renovándose aunque tengas pocos préstamos. Envía el comprobante por WhatsApp; la administración activará tu plan.</p>
+      <div class="modal-actions"><button class="button button-quiet" data-close-dialog type="button">Ahora no</button><a id="premium-required-whatsapp" class="button button-primary" target="_blank" rel="noopener noreferrer">Solicitar Premium por WhatsApp</a></div>
+    </div>
+  </dialog>
+
+  <dialog id="client-register-dialog" class="modal-card">
+    <form id="client-register-form" class="form-stack">
+      <div class="modal-heading"><div><p class="eyebrow">PORTAL DE CLIENTE</p><h2>Crear acceso de cliente</h2></div><button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button></div>
+      <p class="muted">Solicita a la empresa tu usuario, tu ID de cliente y un código de activación. El código se usa una sola vez.</p>
+      <label for="client-register-lender">Usuario de la empresa</label><input id="client-register-lender" name="prestamista" autocomplete="username" minlength="3" maxlength="32" required>
+      <label for="client-register-id">ID de cliente</label><input id="client-register-id" name="id_cliente" required>
+      <label for="client-register-code">Código de activación</label><input id="client-register-code" name="codigo_acceso" autocomplete="one-time-code" required>
+      <label for="client-register-user">Elige tu usuario</label><input id="client-register-user" name="usuario" autocomplete="username" minlength="3" maxlength="32" required>
+      <label for="client-register-password">Contraseña (mínimo 12 caracteres)</label><input id="client-register-password" name="contrasena" type="password" autocomplete="new-password" minlength="12" maxlength="128" required>
+      <div class="modal-actions"><button class="button button-quiet" data-close-dialog type="button">Cancelar</button><button class="button button-primary" type="submit">Crear acceso</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="client-access-code-dialog" class="modal-card">
+    <div class="form-stack">
+      <div class="modal-heading"><div><p class="eyebrow">CÓDIGO DE UN SOLO USO</p><h2>Entrega este código al cliente</h2></div><button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button></div>
+      <p class="muted">Comparte el código por un medio privado. El cliente también necesitará el ID del cliente y el usuario de la empresa. El código dejará de funcionar después de registrarse.</p>
+      <output id="client-access-code-value" class="temporary-password-value"></output>
+      <div class="modal-actions"><button class="button button-primary" data-close-dialog type="button">Listo, ya lo guardé</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="payment-history-dialog" class="modal-card modal-wide">
+    <div class="form-stack">
+      <div class="modal-heading">
+        <div><p class="eyebrow">SUSCRIPCIÓN</p><h2 id="payment-history-title">Historial de pagos</h2></div>
+        <button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Fecha</th><th>Monto</th><th>Periodo cubierto</th><th>Registrado por</th></tr></thead><tbody id="payment-history-table"></tbody></table>
+      </div>
+      <p id="payment-history-empty" class="empty-state" hidden>No hay pagos registrados para esta cuenta.</p>
+      <div class="modal-actions"><button class="button button-secondary" data-close-dialog type="button">Cerrar</button></div>
+    </div>
+  </dialog>
+
+  <dialog id="temporary-password-dialog" class="modal-card">
+    <div class="form-stack">
+      <div class="modal-heading">
+        <div><p class="eyebrow">RESTABLECIMIENTO COMPLETADO</p><h2>Contraseña temporal</h2></div>
+        <button class="icon-button" data-close-dialog type="button" aria-label="Cerrar">×</button>
+      </div>
+      <p id="temporary-password-company" class="muted"></p>
+      <p class="muted">Cópiala y entrégala al usuario por un medio seguro. Solo se muestra ahora; al iniciar sesión deberá crear una contraseña nueva.</p>
+      <output id="temporary-password-value" class="temporary-password-value"></output>
+      <div class="modal-actions"><button class="button button-primary" data-close-dialog type="button">Listo, ya la guardé</button></div>
+    </div>
+  </dialog>
+
+  <p id="toast" class="toast" role="status" aria-live="polite"></p>
+  <p class="install-hint" id="ios-install-hint" hidden>En iPhone: toca <strong>Compartir</strong> y luego <strong>Añadir a pantalla de inicio</strong>.</p>
+  <script src="/app.js" defer></script>
+</body>
+</html>
